@@ -1,0 +1,14 @@
+@font-face {
+  font-family: Gilroy;
+  src: url("./Gilroy-ExtraBold.woff2");
+}
+
+@font-face {
+  font-family: Gilroy-lite;
+  src: url("./Gilroy-Light.woff2");
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("./Roboto-Regular.woff2");
+}
