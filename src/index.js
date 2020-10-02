@@ -12,8 +12,8 @@ import Main_osob from "./main/main_osob.js";
 import Main_pent from "./main/main_pent.js";
 import Main_vubkv from "./main/main_vubkv.js";
 
-import Header_class from "./header/header.js";
-import Footer_class from "./footer/footer.js";
+import HeaderClass from "./header/header.js";
+import FooterClass from "./footer/footer.js";
 
 const Wraper = styled.div`
   background: #ffffff;
@@ -51,7 +51,7 @@ class App extends React.Component {
       <Router>
         <Wraper>
           <Content>
-            <Header_class />
+            <HeaderClass />
             <Conteiner>
               <TransitionGroup>
                 <CSSTransition
@@ -68,7 +68,7 @@ class App extends React.Component {
               </TransitionGroup>
             </Conteiner>
           </Content>
-          <Footer_class />
+          <FooterClass />
         </Wraper>
       </Router>
     );

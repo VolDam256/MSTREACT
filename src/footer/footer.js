@@ -20,7 +20,7 @@ const Footer = styled.div`
   /* TextDisable */
   color: #505050;
 `;
-const Footer__content = styled.span`
+const FooterContent = styled.span`
   margin-right: 20px;
 
   &:last-child {
@@ -36,8 +36,8 @@ var footer_elements = [
 
 export default class Footer_class extends React.Component {
   render() {
-    const dom_footer_elements = footer_elements.map((val) => {
-      return <Footer__content>{val.content}</Footer__content>;
+    const dom_footer_elements = footer_elements.map((val, index) => {
+      return <FooterContent key={index}>{val.content}</FooterContent>;
     });
     return <Footer>{dom_footer_elements}</Footer>;
   }

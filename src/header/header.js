@@ -16,13 +16,13 @@ const Logo = styled.a`
   text-decoration: none;
   vertical-align: top;
 `;
-const Logo__icon = styled.div`
+const LogoIcon = styled.div`
   display: inline-block;
   width: 70px;
   height: 70px;
   background-color: black;
 `;
-const Logo__text = styled.div`
+const LogoText = styled.div`
   display: inline-block;
   vertical-align: top;
   margin-left: 15px;
@@ -38,7 +38,7 @@ const Menu = styled.div`
   align-self: center;
   height: 60px;
 `;
-const Menu__list = styled.ul`
+const MenuList = styled.ul`
   list-style-type: none;
   margin: 5px 0 0 0;
   padding: 0;
@@ -48,26 +48,26 @@ const Menu__list = styled.ul`
     display: block;
   }
 `;
-const Menu__element = styled.li`
+const MenuElement = styled.li`
   transition: color 0.2s linear;
   padding-left: 25px;
   padding-right: 25px;
   float: left;
-  &:first-child {
+  &:first-of-type {
     padding-left: 5px;
   }
-  &:last-child {
+  &:last-of-type {
     padding-right: 5px;
   }
 `;
-const Menu__link = styled(NavLink)`
+const MenuLink = styled(NavLink)`
   text-decoration: none;
   color: #262525;
   font: normal 800 12px/15px Gilroy;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 `;
-const Menu__line = styled.div`
+const MenuLine = styled.div`
   position: absolute;
   top: 44px;
   width: 100px;
@@ -148,7 +148,7 @@ class Header_class extends React.Component {
     }
     this.state = {
       line_position: line_position,
-      peremen: "translateX(" + trans + "px)" + "scaleX(" + scale + ")",
+      peremen: `translateX(${trans}px) scaleX(${scale})`,
     };
     this.links = [
       React.createRef(),
@@ -159,7 +159,7 @@ class Header_class extends React.Component {
   }
   setpos(peremen1, peremen2) {
     this.setState({
-      peremen: "translateX(" + peremen1 + "px)" + "scaleX(" + peremen2 + ")",
+      peremen: `translateX(${peremen1}px) scaleX(${peremen2})`,
     });
   }
 
@@ -177,7 +177,7 @@ class Header_class extends React.Component {
   }
 
   onMouseE(event) {
-    if (event != this.state.line_position) {
+    if (event !== this.state.line_position) {
       let newtrans;
       let newscale;
       if (event > this.state.line_position) {
@@ -227,8 +227,8 @@ class Header_class extends React.Component {
   render() {
     const dom_menu_elements = menu_elements.map((val, index) => {
       return (
-        <Menu__element key={index}>
-          <Menu__link
+        <MenuElement key={index}>
+          <MenuLink
             ref={this.links[index]}
             key={index}
             to={val.href}
@@ -237,24 +237,24 @@ class Header_class extends React.Component {
             onMouseLeave={() => this.onMouseL(this.state.line_position)}
           >
             {val.content}
-          </Menu__link>
-        </Menu__element>
+          </MenuLink>
+        </MenuElement>
       );
     });
 
     return (
       <Header>
         <Logo href="/">
-          <Logo__icon></Logo__icon>
-          <Logo__text>Первомайская</Logo__text>
+          <LogoIcon></LogoIcon>
+          <LogoText>Первомайская</LogoText>
         </Logo>
         <Menu>
-          <Menu__list>{dom_menu_elements}</Menu__list>
-          <Menu__line
+          <MenuList>{dom_menu_elements}</MenuList>
+          <MenuLine
             style={{
               transform: `${this.state.peremen}`,
             }}
-          ></Menu__line>
+          ></MenuLine>
         </Menu>
         <Nelogo>
           <Callnumber>8 888 888 88 88</Callnumber>

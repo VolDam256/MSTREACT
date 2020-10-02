@@ -30,14 +30,14 @@ const Aside = styled.div`
   display: flex;
   align-items: center;
 `;
-const Aside_list = styled.ul`
+const AsideList = styled.ul`
   padding: 0;
 `;
-const Aside__element = styled.li`
+const AsideElement = styled.li`
   list-style-type: none;
   margin-top: 20px;
 `;
-const Aside__link = styled.a`
+const AsideLink = styled.a`
   position: relative;
   display: inline-block;
   font: ${(props) =>
@@ -45,10 +45,11 @@ const Aside__link = styled.a`
       ? "normal bold 14px/16px Roboto"
       : "normal 300 13px/15px Roboto"};
   text-transform: ${(props) => (props.primary ? "uppercase" : "")};
-  transition: color 0.2s linear;
+  transition: transform 0.8s ease, font 0.8s ease;
   text-decoration: none;
   letter-spacing: 0.03em;
   color: #262525;
+  transform: scale(${(props) => (props.primary ? "1.01" : "1")});
   &:after {
     content: "";
     position: relative;
@@ -74,13 +75,13 @@ const Description = styled.div`
   background-color: #f0f0f0;
 `;
 
-const Description__block = styled.div`
+const DescriptionBlock = styled.div`
   position: relative;
   top: 36vh;
   left: 10.3vw;
 `;
 
-const Description__item = styled.div`
+const DescriptionItem = styled.div`
   position: relative;
   width: 22.6vw;
   transition-duration: 0.8s;
@@ -89,7 +90,7 @@ const Description__item = styled.div`
   height: ${(props) => (props.primary ? "200px" : "0")};
 `;
 
-const Description__main_text = styled.div`
+const DescriptionMainText = styled.div`
   position: relative;
   margin: 0;
   top: 1 vh;
@@ -100,7 +101,7 @@ const Description__main_text = styled.div`
 
   color: #262525;
 `;
-const Description__semi_text = styled(LinesEllipsis)`
+const DescriptionSemiText = styled(LinesEllipsis)`
   position: relative;
   margin: 0;
   top: 2vh;
@@ -111,7 +112,7 @@ const Description__semi_text = styled(LinesEllipsis)`
   color: #262525;
 `;
 
-const Description__semi_link = styled.a`
+const DescriptionSemiLink = styled.a`
   display: inline-block;
   text-decoration: none;
   text-align: center;
@@ -122,18 +123,18 @@ const Description__semi_link = styled.a`
   font-size: 90%;
   margin: 5px;
 `;
-const Description__navigacia = styled.div`
+const DescriptionNavigacia = styled.div`
   position: absolute;
   z-index: 1;
   top: 70vh;
   left: 10.3vw;
 `;
 
-const Description__navigacia_firstnumber = styled.span`
+const DescriptionNavigaciaFirstnumber = styled.span`
   font: normal normal 18px/30px Gilroy-lite;
 `;
 
-const Description__navigacia_second = styled.span`
+const DescriptionNavigaciaSecond = styled.span`
   font: normal normal 18px/30px Gilroy-lite;
 `;
 
@@ -143,7 +144,7 @@ const Picture = styled.div`
   width: 35.6vw;
 `;
 
-const Picture__slaider = styled.img`
+const PictureSlaider = styled.img`
   position: absolute;
   width: 35.6vw;
   height: ${(props) => (props.primary ? "87.5vh" : "0")};
@@ -199,33 +200,32 @@ class Main_class extends React.Component {
   render() {
     const dom_description_elements = main_elements.map((val, index) => {
       return (
-        <Description__block>
-          <Description__item
-            primary={this.state.description__item_position == index}
+        <DescriptionBlock key={index}>
+          <DescriptionItem
+            primary={this.state.description__item_position === index}
           >
             {!!this.state.peremen && (
               <>
-                <Description__main_text>{val.content}</Description__main_text>
-                <Description__semi_text
+                <DescriptionMainText>{val.content}</DescriptionMainText>
+                <DescriptionSemiText
                   text={val.semicontent}
                   maxLine="3"
                   ellipsis={
-                    <Description__semi_link href="#">
-                      ...
-                    </Description__semi_link>
+                    <DescriptionSemiLink href="#">...</DescriptionSemiLink>
                   }
                   trimRight
                   basedOn="words"
                 />
               </>
             )}
-          </Description__item>
-        </Description__block>
+          </DescriptionItem>
+        </DescriptionBlock>
       );
     });
     const dom_pic_elements = main_elements.map((val, index) => {
       return (
-        <Picture__slaider
+        <PictureSlaider
+          key={index}
           styled={{ zIndex: index }}
           primary={this.state.description__item_position >= index}
           src={images[index]}
@@ -235,32 +235,32 @@ class Main_class extends React.Component {
 
     const dom_aside_elements = main_elements.map((val, index) => {
       return (
-        <Aside__element>
-          <Aside__link
-            primary={this.state.description__item_position == index}
+        <AsideElement key={index}>
+          <AsideLink
+            primary={this.state.description__item_position === index}
             href="#"
             onClick={() => {
               this.setState({ description__item_position: index });
             }}
           >
             {val.content}
-          </Aside__link>
-        </Aside__element>
+          </AsideLink>
+        </AsideElement>
       );
     });
     return (
       <Main>
         <Aside>
-          <Aside_list>{dom_aside_elements}</Aside_list>
+          <AsideList>{dom_aside_elements}</AsideList>
         </Aside>
         <Description>
           {dom_description_elements}
-          <Description__navigacia>
-            <Description__navigacia_firstnumber>
+          <DescriptionNavigacia>
+            <DescriptionNavigaciaFirstnumber>
               {this.state.description__item_position + 1}
-            </Description__navigacia_firstnumber>
-            <Description__navigacia_second>/6</Description__navigacia_second>
-          </Description__navigacia>
+            </DescriptionNavigaciaFirstnumber>
+            <DescriptionNavigaciaSecond>/6</DescriptionNavigaciaSecond>
+          </DescriptionNavigacia>
         </Description>
         <Picture>{dom_pic_elements}</Picture>
       </Main>
