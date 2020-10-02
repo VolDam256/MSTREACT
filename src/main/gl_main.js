@@ -16,12 +16,12 @@ const PageTransitionA = styled(PageTransition)`
 
 function gl_main() {
   return (
-    <PageTransitionA preset="moveToLeftFromRight">
+    <Switch>
       <Route exact path="/" component={Main} />
       <Route exact path="/main_osob" component={Main_osob} />
       <Route exact path="/main_pent" component={Main_pent} />
       <Route exact path="/main_vubkv" component={Main_vubkv} />
-    </PageTransitionA>
+    </Switch>
   );
 }
 
