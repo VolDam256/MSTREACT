@@ -4,13 +4,9 @@ import ReactDOM from "react-dom";
 import "./fonts/fonts.css";
 
 import styled from "@emotion/styled";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { PageTransition } from "@steveeeie/react-page-transition";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import Main from "./main/main.js";
-import Main_osob from "./main/main_osob.js";
-import Main_pent from "./main/main_pent.js";
-import Main_vubkv from "./main/main_vubkv.js";
+import GlMain from "./main/gl_main.js";
 
 import HeaderClass from "./header/header.js";
 import FooterClass from "./footer/footer.js";
@@ -35,14 +31,7 @@ class App extends React.Component {
         <Wraper>
           <Content>
             <HeaderClass />
-            <PageTransition preset="moveToLeftFromRight">
-              <Switch>
-                <Route exact path="/" component={Main} />
-                <Route exact path="/main_osob" component={Main_osob} />
-                <Route exact path="/main_pent" component={Main_pent} />
-                <Route exact path="/main_vubkv" component={Main_vubkv} />
-              </Switch>
-            </PageTransition>
+            <GlMain />
           </Content>
           <FooterClass />
         </Wraper>

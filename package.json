@@ -16,9 +16,11 @@
     "react-dom": "^16.13.1",
     "react-ellipsis-text": "^1.2.1",
     "react-lines-ellipsis": "^0.14.1",
+    "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-transition-group": "^4.4.1",
+    "styled-components": "^5.2.0",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
