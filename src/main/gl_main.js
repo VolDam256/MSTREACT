@@ -6,13 +6,6 @@ import Main_pent from "./main_pent.js";
 import Main_vubkv from "./main_vubkv.js";
 import styled from "@emotion/styled";
 import { Switch, Route, withRouter } from "react-router-dom";
-import { PageTransition } from "@steveeeie/react-page-transition";
-
-const PageTransitionA = styled(PageTransition)`
-  position: absolute;
-  top: -95px;
-  width: 100vw;
-`;
 
 function gl_main() {
   return (
