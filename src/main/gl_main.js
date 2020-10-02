@@ -4,7 +4,7 @@ import Main from "./main.js";
 import Main_osob from "./main_osob.js";
 import Main_pent from "./main_pent.js";
 import Main_vubkv from "./main_vubkv.js";
-import styled from "@emotion/styled";
+
 import { Switch, Route, withRouter } from "react-router-dom";
 
 function gl_main() {
