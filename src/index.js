@@ -27,6 +27,23 @@ const Content = styled.div`
   grid-row-start: 1;
   grid-row-end: 2;
 `;
+const Conteiner = styled.div`
+  .fade-enter {
+    opacity: 0.01;
+  }
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 1s ease-in;
+  }
+  .fade-exit {
+    opacity: 1;
+  }
+
+  .fade-exit.fade-exit-active {
+    opacity: 0.01;
+    transition: opacity 1s ease-in;
+  }
+`;
 
 class App extends React.Component {
   render() {
@@ -35,12 +52,21 @@ class App extends React.Component {
         <Wraper>
           <Content>
             <Header_class />
-            <Switch>
-              <Route exact path="/" component={Main} />
-              <Route exact path="/main_osob" component={Main_osob} />
-              <Route exact path="/main_pent" component={Main_pent} />
-              <Route exact path="/main_vubkv" component={Main_vubkv} />
-            </Switch>
+            <Conteiner>
+              <TransitionGroup>
+                <CSSTransition
+                  timeout={{ enter: 10000, exit: 10000 }}
+                  classNames={"fade"}
+                >
+                  <Switch>
+                    <Route exact path="/" component={Main} />
+                    <Route exact path="/main_osob" component={Main_osob} />
+                    <Route exact path="/main_pent" component={Main_pent} />
+                    <Route exact path="/main_vubkv" component={Main_vubkv} />
+                  </Switch>
+                </CSSTransition>
+              </TransitionGroup>
+            </Conteiner>
           </Content>
           <Footer_class />
         </Wraper>
