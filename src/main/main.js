@@ -75,16 +75,12 @@ const Description = styled.div`
   background-color: #f0f0f0;
 `;
 
-const DescriptionBlock = styled.div`
+const DescriptionItem = styled.div`
   position: relative;
   top: 36vh;
   left: 10.3vw;
-`;
-
-const DescriptionItem = styled.div`
-  position: relative;
   width: 22.6vw;
-  transition-duration: 0.8s;
+  transition-duration: 0.4s;
   overflow: hidden;
   opacity: ${(props) => (props.primary ? "1" : "0")};
   height: ${(props) => (props.primary ? "200px" : "0")};
@@ -147,11 +143,11 @@ const Picture = styled.div`
 const PictureSlaider = styled.img`
   position: absolute;
   width: 35.6vw;
-  height: ${(props) => (props.primary ? "87.5vh" : "0")};
+  height: 87.5vh;
+  clip: rect(0, 35.6vw, ${(props) => (props.primary ? "87.5vh" : "0")}, 0);
   overflow: hidden;
   transition-duration: 0.4s;
 `;
-
 var main_elements = [
   {
     content: "Архитектура",
@@ -200,26 +196,25 @@ class Main_class extends React.Component {
   render() {
     const dom_description_elements = main_elements.map((val, index) => {
       return (
-        <DescriptionBlock key={index}>
-          <DescriptionItem
-            primary={this.state.description__item_position === index}
-          >
-            {!!this.state.peremen && (
-              <>
-                <DescriptionMainText>{val.content}</DescriptionMainText>
-                <DescriptionSemiText
-                  text={val.semicontent}
-                  maxLine="3"
-                  ellipsis={
-                    <DescriptionSemiLink href="#">...</DescriptionSemiLink>
-                  }
-                  trimRight
-                  basedOn="words"
-                />
-              </>
-            )}
-          </DescriptionItem>
-        </DescriptionBlock>
+        <DescriptionItem
+          key={index}
+          primary={this.state.description__item_position === index}
+        >
+          {!!this.state.peremen && (
+            <>
+              <DescriptionMainText>{val.content}</DescriptionMainText>
+              <DescriptionSemiText
+                text={val.semicontent}
+                maxLine="3"
+                ellipsis={
+                  <DescriptionSemiLink href="#">...</DescriptionSemiLink>
+                }
+                trimRight
+                basedOn="words"
+              />
+            </>
+          )}
+        </DescriptionItem>
       );
     });
     const dom_pic_elements = main_elements.map((val, index) => {

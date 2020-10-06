@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 
 import { withRouter, NavLink } from "react-router-dom";
+import ReactLogo from "./sprite.svg";
 
 const Header = styled.div`
   position: relative;
@@ -11,7 +12,7 @@ const Header = styled.div`
   height: 95px;
   z-index: 2;
 `;
-const Logo = styled.a`
+const Logo = styled(NavLink)`
   height: 70px;
   text-decoration: none;
   vertical-align: top;
@@ -35,12 +36,12 @@ const LogoText = styled.div`
   text-transform: uppercase;
 `;
 const Menu = styled.div`
-  align-self: center;
-  height: 60px;
+  align-self: flex-start;
+  margin-top: 23px;
 `;
 const MenuList = styled.ul`
   list-style-type: none;
-  margin: 5px 0 0 0;
+  margin: 0;
   padding: 0;
   &:after {
     content: "";
@@ -117,45 +118,33 @@ class Header_class extends React.Component {
     this.onMouseE = this.onMouseE.bind(this);
     this.onMouseL = this.onMouseL.bind(this);
     this.Click = this.Click.bind(this);
-
     this.setpos = this.setpos.bind(this);
-
-    let location = props.location.pathname;
-    let trans = 0;
-    let scale = 0;
-    let line_position = 0;
-    switch (location) {
-      case "/main_osob":
-        line_position = 1;
-        trans = line_position * 142;
-        scale = 1.01;
-        break;
-      case "/main_pent":
-        line_position = 2;
-        trans = line_position * 139;
-        scale = 0.85;
-        break;
-      case "/main_vubkv":
-        line_position = 3;
-        trans = line_position * 142;
-        scale = 1.3;
-        break;
-      default:
-        line_position = 0;
-        trans = line_position * 142;
-        scale = 1;
-        break;
-    }
-    this.state = {
-      line_position: line_position,
-      peremen: `translateX(${trans}px) scaleX(${scale})`,
-    };
     this.links = [
       React.createRef(),
       React.createRef(),
       React.createRef(),
       React.createRef(),
     ];
+    let location = props.location.pathname;
+    let line_position = 0;
+    switch (location) {
+      case "/main_osob":
+        line_position = 1;
+        break;
+      case "/main_pent":
+        line_position = 2;
+        break;
+      case "/main_vubkv":
+        line_position = 3;
+        break;
+      default:
+        line_position = 0;
+        break;
+    }
+    this.state = {
+      line_position: line_position,
+      peremen: ``,
+    };
   }
   setpos(peremen1, peremen2) {
     this.setState({
@@ -164,6 +153,7 @@ class Header_class extends React.Component {
   }
 
   Click(event) {
+
     let width = this.links[event].current.getBoundingClientRect().width;
     width = (width + 10) / 100;
 
@@ -244,7 +234,7 @@ class Header_class extends React.Component {
 
     return (
       <Header>
-        <Logo href="/">
+        <Logo to="/" onClick={() => this.Click(0)}>
           <LogoIcon></LogoIcon>
           <LogoText>Первомайская</LogoText>
         </Logo>
@@ -257,10 +247,10 @@ class Header_class extends React.Component {
           ></MenuLine>
         </Menu>
         <Nelogo>
-          <Callnumber>8 888 888 88 88</Callnumber>
+          <Callnumber href="tel:+7 888 888 88 88">8 888 888 88 88</Callnumber>
           <Burger>
             <Svg>
-              <use xlinkHref="/sprite.svg#line" />
+              <use xlinkHref={ReactLogo+"#line"} />
             </Svg>
           </Burger>
         </Nelogo>
