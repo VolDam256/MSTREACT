@@ -2,7 +2,11 @@
     <symbol id="line"  
         stroke="white"
         stroke-width="2">
-      <line x1="22" y1="48" x2="48" y2="22"/>
+      <line
+        x1="22"
+        y1="48"
+        x2="48"
+        y2="22"/>
       <line
         x1="22"
         y1="35.5"

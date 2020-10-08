@@ -1,29 +1,30 @@
 {
   "files": {
     "main.css": "/MSTREACT/static/css/main.c1839c9b.chunk.css",
-    "main.js": "/MSTREACT/static/js/main.3ca25aaa.chunk.js",
-    "main.js.map": "/MSTREACT/static/js/main.3ca25aaa.chunk.js.map",
+    "main.js": "/MSTREACT/static/js/main.22d699c1.chunk.js",
+    "main.js.map": "/MSTREACT/static/js/main.22d699c1.chunk.js.map",
     "runtime-main.js": "/MSTREACT/static/js/runtime-main.8a8b3e04.js",
     "runtime-main.js.map": "/MSTREACT/static/js/runtime-main.8a8b3e04.js.map",
-    "static/js/2.39555108.chunk.js": "/MSTREACT/static/js/2.39555108.chunk.js",
-    "static/js/2.39555108.chunk.js.map": "/MSTREACT/static/js/2.39555108.chunk.js.map",
+    "static/js/2.91a613ef.chunk.js": "/MSTREACT/static/js/2.91a613ef.chunk.js",
+    "static/js/2.91a613ef.chunk.js.map": "/MSTREACT/static/js/2.91a613ef.chunk.js.map",
     "index.html": "/MSTREACT/index.html",
-    "precache-manifest.33bd3fdb7f7491e90a4214eee13d6856.js": "/MSTREACT/precache-manifest.33bd3fdb7f7491e90a4214eee13d6856.js",
+    "precache-manifest.7a6c6a5c573d8d3078ccd3073ba78389.js": "/MSTREACT/precache-manifest.7a6c6a5c573d8d3078ccd3073ba78389.js",
     "service-worker.js": "/MSTREACT/service-worker.js",
     "static/css/main.c1839c9b.chunk.css.map": "/MSTREACT/static/css/main.c1839c9b.chunk.css.map",
-    "static/js/2.39555108.chunk.js.LICENSE.txt": "/MSTREACT/static/js/2.39555108.chunk.js.LICENSE.txt",
+    "static/js/2.91a613ef.chunk.js.LICENSE.txt": "/MSTREACT/static/js/2.91a613ef.chunk.js.LICENSE.txt",
     "static/media/fonts.css": "/MSTREACT/static/media/Roboto-Regular.2222f1fd.woff2",
     "static/media/pic0.png": "/MSTREACT/static/media/pic0.2af1fd09.png",
     "static/media/pic1.png": "/MSTREACT/static/media/pic1.bb598cd5.png",
     "static/media/pic2.png": "/MSTREACT/static/media/pic2.573d0559.png",
     "static/media/pic3.png": "/MSTREACT/static/media/pic3.ce12f714.png",
     "static/media/pic4.png": "/MSTREACT/static/media/pic4.6c427c5a.png",
-    "static/media/pic5.png": "/MSTREACT/static/media/pic5.a5c2ded4.png"
+    "static/media/pic5.png": "/MSTREACT/static/media/pic5.a5c2ded4.png",
+    "static/media/sprite.svg": "/MSTREACT/static/media/sprite.cecf8ad3.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.8a8b3e04.js",
-    "static/js/2.39555108.chunk.js",
+    "static/js/2.91a613ef.chunk.js",
     "static/css/main.c1839c9b.chunk.css",
-    "static/js/main.3ca25aaa.chunk.js"
+    "static/js/main.22d699c1.chunk.js"
   ]
 }
