@@ -40,12 +40,13 @@ const AsideElement = styled.li`
 const AsideLink = styled.a`
   position: relative;
   display: inline-block;
+  opacity: 1;
   font: ${(props) =>
     props.primary
       ? "normal bold 14px/16px Roboto"
       : "normal 300 13px/15px Roboto"};
   text-transform: ${(props) => (props.primary ? "uppercase" : "")};
-  transition: transform 0.8s ease, font 0.8s ease;
+  transition: transform 0.8s ease, font 0.4s ease;
   text-decoration: none;
   letter-spacing: 0.03em;
   color: #262525;
@@ -59,7 +60,6 @@ const AsideLink = styled.a`
     height: 9px;
     width: ${(props) => (props.primary ? "calc(100% + 10px)" : "0")};
     background-color: #ebd8cc;
-    opacity: 1;
     z-index: -1;
     transition-duration: 0.8s;
   }
@@ -68,6 +68,11 @@ const AsideLink = styled.a`
     width: calc(100% + 10px);
   }
 `;
+/*&:before {
+  opacity: 1;
+  position: absolute;
+  content: "1111";
+}*/
 
 const Description = styled.div`
   grid-column: span 5;
@@ -232,6 +237,7 @@ class Main_class extends React.Component {
       return (
         <AsideElement key={index}>
           <AsideLink
+            data-title={val.content}
             primary={this.state.description__item_position === index}
             href="#"
             onClick={() => {

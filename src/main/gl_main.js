@@ -10,15 +10,22 @@ import { Switch, Route, withRouter } from "react-router-dom";
 function gl_main() {
   return (
     <Switch>
+      <Route exact path={process.env.PUBLIC_URL + "/"} component={Main} />
       <Route
         exact
-        basename={process.env.PUBLIC_URL + "/"}
-        path="/"
-        component={Main}
+        path={process.env.PUBLIC_URL + "/main_osob"}
+        component={Main_osob}
       />
-      <Route exact path="/main_osob" component={Main_osob} />
-      <Route exact path="/main_pent" component={Main_pent} />
-      <Route exact path="/main_vubkv" component={Main_vubkv} />
+      <Route
+        exact
+        path={process.env.PUBLIC_URL + "/main_pent"}
+        component={Main_pent}
+      />
+      <Route
+        exact
+        path={process.env.PUBLIC_URL + "/main_vubkv"}
+        component={Main_vubkv}
+      />
     </Switch>
   );
 }

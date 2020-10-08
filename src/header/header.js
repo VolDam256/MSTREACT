@@ -119,22 +119,24 @@ class Header_class extends React.Component {
     this.onMouseL = this.onMouseL.bind(this);
     this.Click = this.Click.bind(this);
     this.setpos = this.setpos.bind(this);
+    this.first_state = this.first_state.bind(this);
     this.links = [
       React.createRef(),
       React.createRef(),
       React.createRef(),
       React.createRef(),
     ];
+    let adress = process.env.PUBLIC_URL;
     let location = props.location.pathname;
     let line_position = 0;
     switch (location) {
-      case "/main_osob":
+      case adress + "/main_osob":
         line_position = 1;
         break;
-      case "/main_pent":
+      case adress + "/main_pent":
         line_position = 2;
         break;
-      case "/main_vubkv":
+      case adress + "/main_vubkv":
         line_position = 3;
         break;
       default:
@@ -146,6 +148,30 @@ class Header_class extends React.Component {
       peremen: ``,
     };
   }
+
+  componentDidMount() {
+    window.addEventListener("load", this.first_state);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("load", this.first_state);
+  }
+
+  first_state() {
+    let width = this.links[
+      this.state.line_position
+    ].current.getBoundingClientRect().width;
+    width = (width + 10) / 100;
+
+    this.setpos(
+      this.links[this.state.line_position].current.getBoundingClientRect()
+        .left -
+        this.links[0].current.getBoundingClientRect().left +
+        (width * 100 - 100) / 2,
+      width
+    );
+  }
+
   setpos(peremen1, peremen2) {
     this.setState({
       peremen: `translateX(${peremen1}px) scaleX(${peremen2})`,
@@ -153,7 +179,6 @@ class Header_class extends React.Component {
   }
 
   Click(event) {
-
     let width = this.links[event].current.getBoundingClientRect().width;
     width = (width + 10) / 100;
 
@@ -221,7 +246,7 @@ class Header_class extends React.Component {
           <MenuLink
             ref={this.links[index]}
             key={index}
-            to={val.href}
+            to={process.env.PUBLIC_URL + val.href}
             onClick={() => this.Click(index)}
             onMouseEnter={() => this.onMouseE(index)}
             onMouseLeave={() => this.onMouseL(this.state.line_position)}
@@ -250,7 +275,7 @@ class Header_class extends React.Component {
           <Callnumber href="tel:+7 888 888 88 88">8 888 888 88 88</Callnumber>
           <Burger>
             <Svg>
-              <use xlinkHref={ReactLogo+"#line"} />
+              <use xlinkHref={ReactLogo + "#line"} />
             </Svg>
           </Burger>
         </Nelogo>
