@@ -37,7 +37,7 @@ const AsideElement = styled.li`
   list-style-type: none;
   margin-top: 20px;
 `;
-const AsideLink = styled(NavLink)`
+const AsideLink = styled.a`
   position: relative;
   display: inline-block;
   opacity: 1;
@@ -215,9 +215,6 @@ class Main_class extends React.Component {
     let location = this.props.location.hash;
     let description__item_position = 0;
     switch (location) {
-      case "":
-        description__item_position = 0;
-        break;
       case "#architecture":
         description__item_position = 0;
         break;
@@ -240,7 +237,7 @@ class Main_class extends React.Component {
         description__item_position = 5;
         break;
       default:
-        description__item_position = -1;
+        description__item_position = 0;
         break;
     }
     return(description__item_position)
@@ -293,7 +290,7 @@ class Main_class extends React.Component {
           <AsideLink
             data-title={val.content}
             primary={this.state.description__item_position === index}
-            to={process.env.PUBLIC_URL + val.url}
+            href={process.env.PUBLIC_URL + val.url}
             onClick={() => {
               this.setState({ description__item_position: index });
             }}
