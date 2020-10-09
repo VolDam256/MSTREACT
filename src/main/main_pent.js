@@ -9,7 +9,7 @@ const Main = styled.div`
   top: 55px;
   margin-left: 35px;
   width: calc(100% - 115px);
-  height: 840px;
+  height: 87.5vh;
   opacity: 1;
   z-index: 1;
 `;

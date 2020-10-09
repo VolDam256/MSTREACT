@@ -259,7 +259,7 @@ class Header_class extends React.Component {
 
     return (
       <Header>
-        <Logo to="/" onClick={() => this.Click(0)}>
+        <Logo to={process.env.PUBLIC_URL + "/"} onClick={() => this.Click(0)}>
           <LogoIcon></LogoIcon>
           <LogoText>Первомайская</LogoText>
         </Logo>
