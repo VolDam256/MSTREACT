@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import LinesEllipsis from "react-lines-ellipsis";
-import { withRouter, NavLink } from "react-router-dom";
+import { withRouter} from "react-router-dom";
 
 function importAll(r) {
   return r.keys().map(r);
@@ -215,9 +215,6 @@ class Main_class extends React.Component {
     let location = this.props.location.hash;
     let description__item_position = 0;
     switch (location) {
-      case "#architecture":
-        description__item_position = 0;
-        break;
       case "#architecture":
         description__item_position = 0;
         break;
